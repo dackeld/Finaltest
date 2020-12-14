@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void setarray(int* a, int size) {
+    for (int i = 0; i < size; i++) a[i] = 65 + i;
+}
+
+int main() {
+    int arr[26];
+    void* p = &arr;
+
+    setarray(arr, sizeof(arr)/ sizeof(arr[0]));
+    for (int i = 0; i < 26; i++) {
+        printf("%c ", *(char*)p); p = (int*)p + 1;
+    }
+    return 0;
+
+}
